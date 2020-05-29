@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/quiz.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="quiz">
+          <div class="quiz_header">
+            <div class="quiz_user">
+              <h4>Welcome!</h4>
+            </div>
+            <div class="quiz_timer">
+              <p id ="countdown">1:00</p>
+            </div>
+          </div>
+          <div class="quiz_body">
+            <div id="questions">
+            
+
+                    <form name="quiz" id="form1">
+
+                    
+
+                    <b>Question 1.
+
+                    <br>Who is current prime minister of India?<br></b>
+
+                    <blockquote>
+
+                    <input type="radio" name="q1" value="Narendra Modi">Narendra Modi<br>
+
+                    <input type="radio" name="q1" value="Manmohan Singh">Manmohan Singh<br>
+
+                    <input type="radio" name="q1" value="Ramnath kovind">Ramnath kovind<br>
+
+                    </blockquote>
+
+                    <hr>
+
+                    Question 2.
+
+                    <br>Who is current president of India?<br></b>
+
+                    <blockquote>
+
+                    <input type="radio" name="q2" value="Narendra Modi">Narendra Modi<br>
+
+                    <input type="radio" name="q2" value="Manmohan Singh">Manmohan Singh<br>
+  
+                    <input type="radio" name="q2" value="Ramnath kovind">Ramnath kovind<br>
+
+
+                    </blockquote>
+
+                    <hr>
+
+                    Question 3.
+
+                    <br>Who is current chief minister of Rajasthan?<br></b>
+
+                    <blockquote>
+
+                    <input type="radio" name="q3" value="Narendra Modi">Narendra Modi<br>
+
+                    <input type="radio" name="q3" value="Manmohan Singh">Manmohan Singh<br>
+    
+                    <input type="radio" name="q3" value="Ashok Gehlot">Ashok Gehlot<br> 
+                      
+
+                    </blockquote>
+
+                    <hr>
+
+                    Question 4.
+
+                    <br>what is capital of india?<br></b>
+
+                    <blockquote>
+
+                    <input type="radio" name="q4" value="jaipur">jaipur<br>
+
+                    <input type="radio" name="q4" value="delhi">delhi<br>
+
+                    <input type="radio" name="q4" value="mumbai">mumbai<br>
+
+                    </blockquote>
+
+                    <hr>
+
+                    Question 5.
+
+                    <br>what is capital of rajasthan?<br></b>
+
+                    <blockquote>
+
+                      <input type="radio" name="q5" value="jaipur">jaipur<br>
+
+                      <input type="radio" name="q5" value="delhi">delhi<br>
+  
+                      <input type="radio" name="q5" value="mumbai">mumbai<br>
+
+                    </blockquote>
+
+
+                    <input type="submit" value="submit" name="submit" onclick="getScore(this.form)">
+
+                    <br>
+                    <br>
+
+                    Number of score out of 5 = <input type= text size=5 name= "mark">
+                    <br>
+                    <br>
+
+
+                    </form>
+              
+            </div>
+  
+            
+          </div>
+        </div>
+      </div>
+    
+    
+</body>
+<script>
+
+    var numQues = 5;
+    
+    var numChoi = 3;
+    
+    var answers = new Array(5);
+    
+    answers[0] = "Narendra Modi";
+    
+    answers[1] = "Ramnath kovind";
+    
+    answers[2] = "Ashok Gehlot";
+    
+    answers[3] = "delhi";
+    
+    answers[4] = "jaipur";
+
+    
+    function getScore(form) {
+    
+            var score = 0;
+            
+            var curr;
+            
+            var option;
+            
+            for (i=0; i<numQues; i++) {
+            
+            curr = i*numChoi;
+            
+            answered=false;
+            
+            for (j=0; j<numChoi; j++) {
+            
+            option = form.elements[curr + j];
+            
+            if (option.checked) {
+            
+            answered=true;
+            
+            if (option.value == answers[i]) {
+            
+            score++;
+            
+            break;
+            
+            }
+            
+            }
+            
+            }
+            
+            if (answered ===false){alert("Do answer all the questions, Please") ;return false;}
+            
+            }
+            
+            
+            form.mark.value=score;
+            
+            }
+    
+        </script>
+        <script src="js/quiz.js"></script>
+    
+</html>
