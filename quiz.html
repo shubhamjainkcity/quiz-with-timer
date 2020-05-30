@@ -22,7 +22,7 @@
             <div id="questions">
             
 
-                    <form name="quiz" id="form1">
+                    <form name="quiz" id="form1" method="POST">
 
                     
 
@@ -107,15 +107,9 @@
                     </blockquote>
 
 
-                    <input type="submit" value="submit" name="submit" onclick="getScore(this.form)">
+                    <input type="submit" value="submit" id="submit" name="submit" onclick="return getScore(document.forms[0])">
 
-                    <br>
-                    <br>
-
-                    Number of score out of 5 = <input type= text size=5 name= "mark">
-                    <br>
-                    <br>
-
+                    <div id="mark" style="margin :auto; font-size: 40px; color:crimson;text-align: center;"></div>
 
                     </form>
               
@@ -127,70 +121,6 @@
       </div>
     
     
-</body>
-<script>
-
-    var numQues = 5;
-    
-    var numChoi = 3;
-    
-    var answers = new Array(5);
-    
-    answers[0] = "Narendra Modi";
-    
-    answers[1] = "Ramnath kovind";
-    
-    answers[2] = "Ashok Gehlot";
-    
-    answers[3] = "delhi";
-    
-    answers[4] = "jaipur";
-
-    
-    function getScore(form) {
-    
-            var score = 0;
-            
-            var curr;
-            
-            var option;
-            
-            for (i=0; i<numQues; i++) {
-            
-            curr = i*numChoi;
-            
-            answered=false;
-            
-            for (j=0; j<numChoi; j++) {
-            
-            option = form.elements[curr + j];
-            
-            if (option.checked) {
-            
-            answered=true;
-            
-            if (option.value == answers[i]) {
-            
-            score++;
-            
-            break;
-            
-            }
-            
-            }
-            
-            }
-            
-            if (answered ===false){alert("Do answer all the questions, Please") ;return false;}
-            
-            }
-            
-            
-            form.mark.value=score;
-            
-            }
-    
-        </script>
+    </body>
         <script src="js/quiz.js"></script>
     
-</html>
